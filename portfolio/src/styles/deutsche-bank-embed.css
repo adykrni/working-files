@@ -1,0 +1,12 @@
+@import "./deutsche-bank-tokens.css";
+
+.db-embed {
+  --db-font-display: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --db-font-text: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: var(--db-primary);
+  font-family: var(--db-font-text);
+}
+
+@utility font-display {
+  font-family: var(--db-font-display);
+}

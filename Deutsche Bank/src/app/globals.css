@@ -1,0 +1,56 @@
+@import "tailwindcss";
+@import "../styles/design-tokens.css";
+
+@theme inline {
+  --color-background: var(--db-background);
+  --color-foreground: var(--db-primary);
+  --font-sans: var(--db-font-text);
+  --font-display: var(--db-font-display);
+}
+
+body {
+  background: #ffffff;
+  color: var(--db-primary);
+  font-family: var(--db-font-text);
+  cursor: default;
+}
+
+*,
+*::before,
+*::after {
+  cursor: inherit;
+}
+
+button,
+[role="button"],
+a,
+label,
+select,
+summary,
+[type="button"],
+[type="submit"],
+[type="reset"],
+[type="checkbox"],
+[type="radio"] {
+  cursor: default;
+}
+
+input:not([type="button"]):not([type="submit"]):not([type="reset"]):not([type="checkbox"]):not([type="radio"]),
+textarea,
+[contenteditable="true"] {
+  cursor: text;
+}
+
+@utility font-display {
+  font-family: var(--db-font-display);
+}
+
+/* Hide Next.js development UI (indicator, dev tools button, build watcher). */
+nextjs-portal,
+[data-next-badge-root],
+[data-nextjs-dev-tools-button],
+[data-nextjs-toast],
+#__next-build-watcher,
+button[aria-label*="Next.js Dev Tools"] {
+  display: none !important;
+}

@@ -1,0 +1,52 @@
+# Loryn UI — Cursor rules
+
+Read these files before generating or modifying UI code:
+- `designsystem.md` — tokens, colours, spacing, radius, typography (source of truth)
+- `components.md` — 41 base component specs in `src/components/base/`
+- `patterns.md` — composite recipes in `src/components/custom/`
+
+## Design system
+
+- Follow `designsystem.md` for all tokens. Never deviate from colour, spacing, radius, or typography scales.
+- Use Tailwind utility classes only — no inline styles.
+- Use semantic CSS variable tokens (`bg-primary`, `text-muted-foreground`) in component JSX — not raw palette classes (`bg-teal-500`).
+- Use spacing from the scale — no arbitrary values like `p-[13px]`.
+- Shadcn primitives live in `src/components/ui/` — do not edit these files (CLI-managed).
+- Extend Shadcn via `className` and `cva` in base components; do not rewrite primitives from scratch.
+- Mobile-first responsive: `sm:`, `md:`, `lg:` per designsystem breakpoints.
+- Keep dark mode by using CSS variable-backed colours only.
+
+## Component layers
+
+```
+src/components/ui/      ← Shadcn originals (do not edit)
+src/components/base/    ← Branded base components (import ui/ inside only)
+src/components/custom/  ← Composites (import base/ only)
+```
+
+### Base (`components/base/`)
+
+- One file per component; specs in `components.md`.
+- Import Shadcn from `@/components/ui/` inside base files only.
+- Pages, features, and layouts import from `@/components/base/` — never `@/components/ui/`.
+- Use `cn()` from `@/lib/utils` for className merging.
+- Every component accepts `className` as an override prop.
+- Match variant names in `components.md` exactly.
+- Focus: `focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2`.
+- Disabled: `disabled:opacity-50 disabled:pointer-events-none`.
+- Transitions: `transition-colors duration-150` for colour changes.
+
+### Custom (`components/custom/`)
+
+- Composite components only; recipes in `patterns.md`.
+- Import ONLY from `@/components/base/` — never `@/components/ui/`.
+- No inline styles; strongly typed props; `className` escape hatch.
+- Prefer existing composites (`Item`, `Card`, `PageHeader`, etc.) over ad-hoc flex wrappers.
+- If a new primitive is needed, add it to `components.md` and `base/` first.
+
+## When adding components
+
+1. Check `patterns.md` — does a composite already exist?
+2. Check `components.md` — which base primitives are required?
+3. New base: copy from `ui/`, apply variant spec, save to `base/`.
+4. New composite: compose from `base/` only; document in `patterns.md`.

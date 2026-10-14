@@ -1,0 +1,84 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Radio Grotesk";
+  src: url("/Radio%20Grotesk/PPRadioGrotesk-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Radio Grotesk";
+  src: url("/Radio%20Grotesk/PPRadioGrotesk-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --muted: #171717;
+  --grid-line: #dde2ea;
+  --surface-card: #f3f3f3;
+  --surface-media: #f1f0f0;
+  --surface-diagram: #e3f0ff;
+  --divider: #e5e5e5;
+  --panel-border: #c2c2c2;
+  --section-label: #171717;
+  --copyright: #171717;
+  --klm-orange: #e37222;
+  --klm-blue: #0077c8;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-grid-line: var(--grid-line);
+  --color-surface-card: var(--surface-card);
+  --color-surface-media: var(--surface-media);
+  --color-surface-diagram: var(--surface-diagram);
+  --color-divider: var(--divider);
+  --color-panel-border: var(--panel-border);
+  --color-section-label: var(--section-label);
+  --color-copyright: var(--copyright);
+  --color-klm-orange: var(--klm-orange);
+  --color-klm-blue: var(--klm-blue);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-radio: "Radio Grotesk", system-ui, sans-serif;
+  --animate-spin-slow: spin-slow 8s linear infinite;
+}
+
+/* Keep document scrolling on the root element — never lock html/body height */
+html {
+  height: auto;
+  overflow-y: scroll;
+  background: var(--background);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  min-height: 100svh;
+  overflow-x: clip;
+  overflow-y: visible;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+@keyframes spin-slow {
+  to {
+    transform: rotate(360deg);
+  }
+}

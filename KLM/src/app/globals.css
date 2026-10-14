@@ -1,0 +1,33 @@
+@import "tailwindcss";
+
+:root {
+  --background: #fcfcfc;
+  --foreground: #2d3541;
+  --text-muted: #606570;
+  --surface-card: #f3f3f3;
+  --surface-media: #f1f0f0;
+  --surface-diagram: #e3f0ff;
+  --divider: #e5e5e5;
+  --klm-orange: #e37222;
+  --klm-blue: #0077c8;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--text-muted);
+  --color-surface-card: var(--surface-card);
+  --color-surface-media: var(--surface-media);
+  --color-surface-diagram: var(--surface-diagram);
+  --color-divider: var(--divider);
+  --color-klm-orange: var(--klm-orange);
+  --color-klm-blue: var(--klm-blue);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+}

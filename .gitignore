@@ -1,0 +1,15 @@
+# Dependency installs and build caches. Reinstall with npm install.
+node_modules/
+.next/
+out/
+dist/
+build/
+coverage/
+
+# OS and local env
+.DS_Store
+.env
+.env.*
+!.env.example
+*.pem
+*.tsbuildinfo
